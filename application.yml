@@ -1,0 +1,44 @@
+server:
+  port: 8082
+
+app:
+  identity:
+    service-name: ${IDENTITY_SERVICE_NAME}
+    base-url: http://${app.identity.service-name}
+    endpoint: /api/v1/auth/validate?token={token}
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: accounting-service
+          uri: lb://accounting-service
+          predicates:
+            - Path=/api/v1/accounting/**
+          filters:
+            - AuthenticationFilter
+        - id: security-service
+          uri: lb://security-service
+          predicates:
+            - Path=/api/v1/security/**
+          filters:
+            - AuthenticationFilter
+        - id: resignation-service
+          uri: lb://resignation-service
+          predicates:
+            - Path=/api/v1/resignation/**
+          filters:
+            - AuthenticationFilter
+        - id: identity-service
+          uri: lb://identity-service
+          predicates:
+            - Path=/api/v1/auth/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
