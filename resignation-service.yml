@@ -3,13 +3,10 @@ server:
 app:
   timezone: Europe/Minsk
   accounting:
-    base-url: ${ACCOUNTING_SERVICE_URL}
     endpoint: /api/v1/accounting/allocation
   profiler:
-    base-url: ${PROFILER_SERVICE_URL}
     endpoint: /api/v1/cvs
   security:
-    base-url: ${SECURITY_SERVICE_URL}
     endpoint: /api/v1/security/check
 spring:
   application:
