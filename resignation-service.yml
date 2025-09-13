@@ -29,3 +29,41 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
   instance:
     prefer-ip-address: true
+
+resilience4j:
+  circuitbreaker:
+    circuit-breaker-aspect-order: 1
+    configs:
+      default:
+        sliding-window-type: COUNT_BASED
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 15s
+        permitted-number-of-calls-in-half-open-state: 5
+        event-consumer-buffer-size: 20
+        ignore-exceptions:
+          - by.javaguru.jdmik7.resignation.api.exception.RemoteConnectionException
+    instances:
+      accounting-service:
+        base-config: default
+      security-service:
+        base-config: default
+      profiler-service:
+        base-config: default
+
+  retry:
+    retry-aspect-order: 2
+    configs:
+      default:
+        max-attempts: 3
+        wait-duration: 5s
+        ignore-exceptions:
+          - by.javaguru.jdmik7.resignation.api.exception.RemoteConnectionException
+    instances:
+      accounting-service:
+        base-config: default
+      security-service:
+        base-config: default
+      profiler-service:
+        base-config: default
