@@ -43,7 +43,8 @@ resilience4j:
         permitted-number-of-calls-in-half-open-state: 5
         event-consumer-buffer-size: 20
         ignore-exceptions:
-          - by.javaguru.jdmik7.resignation.api.exception.RemoteConnectionException
+          - by.javaguru.jdmik7.resignation.api.exception.ResourceNotFoundException
+          - by.javaguru.jdmik7.resignation.api.exception.ExternalServiceException
     instances:
       accounting-service:
         base-config: default
@@ -59,7 +60,8 @@ resilience4j:
         max-attempts: 3
         wait-duration: 5s
         ignore-exceptions:
-          - by.javaguru.jdmik7.resignation.api.exception.RemoteConnectionException
+          - by.javaguru.jdmik7.resignation.api.exception.ResourceNotFoundException
+          - by.javaguru.jdmik7.resignation.api.exception.ExternalServiceException
     instances:
       accounting-service:
         base-config: default
