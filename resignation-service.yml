@@ -1,13 +1,5 @@
 server:
   port: 0
-app:
-  timezone: Europe/Minsk
-  accounting:
-    endpoint: /api/v1/accounting/allocation
-  profiler:
-    endpoint: /api/v1/cvs
-  security:
-    endpoint: /api/v1/security/check
 spring:
   application:
     name: resignation-service
@@ -23,12 +15,15 @@ spring:
       ddl-auto: none
   liquibase:
     change-log: db.changelog/changelog.xml
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    prefer-ip-address: true
+
+app:
+  timezone: Europe/Minsk
+  accounting:
+    endpoint: /api/v1/accounting/allocation
+  profiler:
+    endpoint: /api/v1/cvs
+  security:
+    endpoint: /api/v1/security/check
 
 resilience4j:
   circuitbreaker:
