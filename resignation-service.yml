@@ -26,6 +26,7 @@ spring:
       topics:
         accounting: accounting.requests.v1
         security: security.requests.v1
+        resignation: resignation.responses.v1
 
 app:
   timezone: Europe/Minsk
