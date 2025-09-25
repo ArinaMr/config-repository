@@ -13,6 +13,20 @@ spring:
       ddl-auto: none
   liquibase:
     change-log: db.changelog/changelog.xml
+  kafka:
+    bootstrap-servers: kafka-1:9192,kafka-2:9192,kafka-3:9192
+    producer:
+      acks: all
+      retries: 2147483647
+      delivery-timeout-ms: 120000
+      linger-ms: 5
+      request-timeout-ms: 30000
+      enable-idempotence: true
+      max-in-flight-requests: 5
+      accounting:
+        topic: accounting.requests.v1
+      security:
+        topic: security.requests.v1
 
 app:
   timezone: Europe/Minsk
@@ -62,18 +76,3 @@ resilience4j:
         base-config: default
       profiler-service:
         base-config: default
-
-  kafka:
-    bootstrap-servers: kafka-1:9192,kafka-2:9192,kafka-3:9192
-    producer:
-      acks: all
-      retries: 2147483647
-      delivery-timeout-ms: 120000
-      linger-ms: 5
-      request-timeout-ms: 30000
-      enable-idempotence: true
-      max-in-flight-requests: 5
-      accounting:
-        topic: accounting.requests.v1
-      security:
-        topic: security.requests.v1
