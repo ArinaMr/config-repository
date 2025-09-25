@@ -73,10 +73,7 @@ resilience4j:
       request-timeout-ms: 30000
       enable-idempotence: true
       max-in-flight-requests: 5
-
-kafka:
-  producer:
-    accounting:
-      topic: accounting.requests.v1
-    security:
-      topic: security.requests.v1
+      accounting:
+        topic: accounting.requests.v1
+      security:
+        topic: security.requests.v1
