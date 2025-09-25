@@ -23,10 +23,11 @@ spring:
       request-timeout-ms: 30000
       enable-idempotence: true
       max-in-flight-requests: 5
-      accounting:
-        topic: accounting.requests.v1
-      security:
-        topic: security.requests.v1
+      topics:
+        accounting:
+          topic: accounting.requests.v1
+        security:
+          topic: security.requests.v1
 
 app:
   timezone: Europe/Minsk
