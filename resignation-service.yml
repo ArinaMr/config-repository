@@ -77,6 +77,6 @@ resilience4j:
 kafka:
   producer:
     accounting:
-      topic: accounting-topic
+      topic: accounting.requests.v1
     security:
-      topic: security-topic
+      topic: security.requests.v1
