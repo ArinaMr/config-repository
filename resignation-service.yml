@@ -24,10 +24,8 @@ spring:
       enable-idempotence: true
       max-in-flight-requests: 5
       topics:
-        accounting:
-          topic: accounting.requests.v1
-        security:
-          topic: security.requests.v1
+        accounting: accounting.requests.v1
+        security: security.requests.v1
 
 app:
   timezone: Europe/Minsk
