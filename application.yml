@@ -27,5 +27,8 @@ spring:
         security: security-service
         resignation: resignation-service
       auto-offset-reset: earliest
+      retry:
+        interval-ms: 1000
+        max-retries: 3
       properties:
         springJsonTrustedPackages: "*"
