@@ -28,4 +28,4 @@ spring:
         resignation: resignation-service
       auto-offset-reset: earliest
       properties:
-        spring.json.trusted.packages: "*"
+        springJsonTrustedPackages: "*"
