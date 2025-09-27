@@ -21,11 +21,13 @@ spring:
         accounting: accounting.requests.v1
         security: security.requests.v1
         resignation: resignation.responses.v1
+        notification: notification.requests.v1
     consumer:
       group-id:
         accounting: accounting-service
         security: security-service
         resignation: resignation-service
+        notification:  notification-service
       auto-offset-reset: earliest
       retry:
         interval-ms: 1000
