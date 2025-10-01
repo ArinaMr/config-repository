@@ -16,24 +16,25 @@ spring:
       linger-ms: 5
       request-timeout-ms: 30000
       enable-idempotence: true
-      max-in-flight-requests: 5
-      topics:
-        accounting: accounting.requests.v1
-        security: security.requests.v1
-        resignation: resignation.responses.v1
-        notification: notification.requests.v1
+      max-in-flight-requests-per-connection: 5
     consumer:
-      group-id:
-        accounting: accounting-service
-        security: security-service
-        resignation: resignation-service
-        notification:  notification-service
+      group-id: resignation-service
       auto-offset-reset: earliest
-      retry:
-        interval-ms: 1000
-        max-retries: 3
-      properties:
-        springJsonTrustedPackages: "*"
+app:
+  kafka:
+    topics:
+      accounting: accounting.requests.v1
+      security: security.requests.v1
+      resignation: resignation.responses.v1
+      notification: notification.requests.v1
+    groups:
+      accounting: accounting-service
+      security: security-service
+      resignation: resignation-service
+      notification: notification-service
+    retry:
+      interval-ms: 1000
+      max-retries: 3
 management:
   tracing:
     enabled: true
