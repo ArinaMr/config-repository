@@ -17,9 +17,12 @@ spring:
       request-timeout-ms: 30000
       enable-idempotence: true
       max-in-flight-requests-per-connection: 5
+      transaction-id-prefix: transfer-prefix-${random.uuid}-
     consumer:
       group-id: resignation-service
       auto-offset-reset: earliest
+    properties:
+      isolation.level: read_committed
 app:
   kafka:
     topics:
@@ -48,3 +51,7 @@ management:
   otlp:
     tracing:
       endpoint: ${JAEGER_URL:http://localhost:4318/v1/traces}
+logging:
+  level:
+    org.springframework.transaction: TRACE
+    org.springframework.kafka.transaction: TRACE
