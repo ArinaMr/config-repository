@@ -17,7 +17,6 @@ spring:
       request-timeout-ms: 30000
       enable-idempotence: true
       max-in-flight-requests-per-connection: 5
-      transactionIdPrefix: resignation-prefix-${random.uuid}-
     consumer:
       group-id: resignation-service
       auto-offset-reset: earliest
