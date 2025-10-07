@@ -65,3 +65,13 @@ resilience4j:
         base-config: default
       profiler-service:
         base-config: default
+
+outbox:
+  scheduler:
+    fixed-delay-ms: 5000
+    batch-size: 10
+    lock-timeout-minutes: 5
+    worker-ids:
+      - worker-1
+      - worker-2
+      - worker-3
