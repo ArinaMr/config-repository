@@ -1,6 +1,9 @@
 spring:
   application:
     name: resignation-service
+  kafka:
+    producer:
+      transaction-id-prefix: resignation-prefix-
   datasource:
     url: ${DATABASE_URL}
     username: ${DATABASE_USERNAME}
