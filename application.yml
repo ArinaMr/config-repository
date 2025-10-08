@@ -15,13 +15,9 @@ spring:
       delivery-timeout-ms: 120000
       linger-ms: 5
       request-timeout-ms: 30000
-      enable-idempotence: true
       max-in-flight-requests-per-connection: 5
     consumer:
-      group-id: resignation-service
       auto-offset-reset: earliest
-    properties:
-      isolation.level: read_committed
 app:
   kafka:
     topics:
