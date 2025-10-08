@@ -1,6 +1,3 @@
 spring:
   application:
     name: accounting-service
-  kafka:
-    producer:
-      transaction-id-prefix: accounting-prefix-
