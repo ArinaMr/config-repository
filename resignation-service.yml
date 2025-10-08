@@ -1,13 +1,6 @@
 spring:
   application:
     name: resignation-service
-  kafka:
-    producer:
-      enable-idempotence: true
-    consumer:
-      group-id: resignation-service
-    properties:
-      isolation.level: read_committed
   datasource:
     url: ${DATABASE_URL}
     username: ${DATABASE_USERNAME}
