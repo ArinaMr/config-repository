@@ -25,6 +25,7 @@ app:
       security: security.requests.v1
       resignation: resignation.responses.v1
       notification: notification.requests.v1
+      profiler: profiler-update-requests
     groups:
       accounting: accounting-service
       security: security-service
