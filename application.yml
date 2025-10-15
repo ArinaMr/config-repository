@@ -26,6 +26,7 @@ app:
       resignation: resignation.responses.v1
       notification: notification.requests.v1
       profiler: profiler-update-requests
+      saga: saga.v1
     groups:
       accounting: accounting-service
       security: security-service
