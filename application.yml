@@ -26,12 +26,14 @@ app:
       resignation: resignation.responses.v1
       notification: notification.requests.v1
       profiler: profiler-update-requests
-      saga: resignation-saga-requests
+      resignation-saga: resignation-saga-requests
     groups:
       accounting: accounting-service
       security: security-service
       resignation: resignation-service
       notification: notification-service
+      profiler: profiler-service
+      resignation-saga: resignation-saga-service
     retry:
       interval-ms: 1000
       max-retries: 3
